@@ -3,6 +3,8 @@ const app = express()
 const dotenv = require('dotenv')
 const mongoose = require('mongoose')
 
+const authRoute = require('./routes/auth')
+
 dotenv.config()
 
 mongoose.connect(
@@ -11,7 +13,7 @@ mongoose.connect(
     () => console.log('connected to db!')
 )
 
-const authRoute = require('./routes/auth')
+app.use(express.json())
 
 app.use('/api/user', authRoute)
 
