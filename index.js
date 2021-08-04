@@ -9,7 +9,7 @@ dotenv.config()
 
 mongoose.connect(
     process.env.DB_CONNECT,
-    { useUnifiedTopology: true },
+    { useUnifiedTopology: true, useNewUrlParser: true },
     () => console.log('connected to db!')
 )
 
